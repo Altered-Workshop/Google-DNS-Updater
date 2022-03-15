@@ -6,7 +6,7 @@ source secrets.sh # Import secrets file
  
 # Define working variables
 currentIP=$(curl -s -k https://domains.google.com/checkip) # Import current WAN IP address from Google
-lastIP=/home/pi/scripts/IP.txt
+lastIP='Path to IP.txt' #Path to "IP.txt" file to store current WAN IP address
 
 if ! test -f "$lastIP"
 then
