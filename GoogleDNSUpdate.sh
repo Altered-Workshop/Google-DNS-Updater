@@ -1,12 +1,11 @@
 #!/bin/bash
-
 # Script to update Google domain service with Dynamic IP
 
-source secrets.sh # Import secrets file
+source config.sh #Import configuration
  
 # Define working variables
 currentIP=$(curl -s -k https://domains.google.com/checkip) # Import current WAN IP address from Google
-lastIP='Path to IP.txt' #Path to "IP.txt" file to store current WAN IP address
+lastIP=$IPtxtPath #Path to "IP.txt" file to store current WAN IP address
 
 if ! test -f "$lastIP"
 then
