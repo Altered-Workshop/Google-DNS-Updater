@@ -9,4 +9,4 @@ Google_Domain="DOMAIN NAME" #Domain name
 eMail="eMail Address"
 
 #Path to "Last IP.txt"
-IPtxtPath="PATH TO REPOSITORY/IP.txt"
+IPtxtPath="PATH TO/IP.txt"
