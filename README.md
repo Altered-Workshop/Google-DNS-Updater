@@ -20,7 +20,7 @@ After cloning the repository, you will need to set the configuration file. Navig
 ```shell
 mv example_config.sh config.sh
   ```
-* Open the config file and replace anything between curly brackets {} with your system specific values.
+* Open the config file and replace the curly brackets {} and anything in between with your system specific values.
 ```shell
 nano config.sh
 ```
