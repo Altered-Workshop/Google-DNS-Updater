@@ -5,18 +5,18 @@ source config.sh #Import configuration
  
 # Define working variables
 currentIP=$(curl -s -k https://domains.google.com/checkip) # Import current WAN IP address from Google
-lastIP=$IPtxtPath #Path to "IP.txt" file to store current WAN IP address
+lastIPtxt=$IPtxtPath #Path to "IP.txt" file to store current WAN IP address
 
-if ! test -f "$lastIP"
+if ! test -f "$lastIPtxt"
 then
-    touch "$lastIP"
-    echo "empty" > "$lastIP"
+    touch "$lastIPtxt"
+    echo "empty" > "$lastIPtxt"
 fi
-lastIP=$(<$lastIP) # Import txt file holding last known WAN IP address
+lastIP=$(<$lastIPtxt) # Import txt file holding last known WAN IP address
 
 if [ $currentIP != $lastIP ] # Compare IP addresses
 then  # Only run script if the last IP address and current IP are different
-    echo "$currentIP" > "$lastIP" # Write the current WAN IP to the txt file
+    echo "$currentIP" > "$lastIPtxt" # Write the current WAN IP to the txt file
 # Update Google DNS Record
     URL="https://${Google_DNS_User}:${Google_DNS_Pass}@domains.google.com/nic/update?hostname=${Google_Domain}" #Google API call
     echo "IP.txt updated from $lastIP to $currentIP" | mail -s "IP Updated" $eMail # Send email with txt/IP update
